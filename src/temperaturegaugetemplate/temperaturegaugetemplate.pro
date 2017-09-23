@@ -1,7 +1,7 @@
 TEMPLATE = lib
 TARGET = temperaturegaugetemplate
 QT += qml quick
-QT_PRIVATE += core-private gui-private qml-private quick-private quicktemplates2-private quickcontrols2-private
+QT_PRIVATE += qml-private quick-private quicktemplates2-private quickcontrols2-private
 CONFIG += plugin c++11
 IMPORT_VERSION = 1.0
 

@@ -2,6 +2,7 @@
 #define TEMPERATUREGAUGE_P_P_H
 
 #include <QtQuickTemplates2/private/qquickcontrol_p_p.h>
+#include "temperaturegauge_p.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -10,6 +11,8 @@ class Q_QUICKTEMPLATES2_PRIVATE_EXPORT TemperatureGaugePrivate : public QQuickCo
 public:
     TemperatureGaugePrivate();
 
+    TemperatureGauge::Unit inputUnit;
+    TemperatureGauge::Unit displayUnit;
     int value;
 };
 

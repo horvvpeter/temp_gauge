@@ -7,22 +7,17 @@ import TemperatureGauge 1.0
 ApplicationWindow {
     id: window
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Hello TemperatureGauge!")
+    width: 500
+    height: 400
+    title: qsTr("TemperatureGauge example")
 
     Settings {
         id: settings
         property string style
     }
 
-    TemperatureGauge {
-        width: 50
-        height: 50
-    }
-
     ColumnLayout {
-        spacing: 20
+        spacing: 10
         anchors.fill: parent
         anchors.margins: 10
 
@@ -62,6 +57,27 @@ ApplicationWindow {
                 onClicked: {
                     settings.style = styleBox.displayText;
                     styleSavePopup.open();
+                }
+            }
+        }
+
+        RowLayout {
+            spacing: 10
+            TemperatureGauge {
+                id: temperatureGauge
+                minValue: -50
+                maxValue: 50
+            }
+
+            Dial {
+                from: temperatureGauge.minValue
+                to: temperatureGauge.maxValue
+                onValueChanged: temperatureGauge.value = value
+                scale: 0.8
+                Layout.fillWidth: true
+                Text {
+                    anchors.centerIn: parent
+                    text: parent.value.toFixed(2)
                 }
             }
         }

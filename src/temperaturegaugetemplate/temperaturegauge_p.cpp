@@ -50,16 +50,16 @@ void TemperatureGauge::setDisplayUnit(TemperatureGauge::Unit unitType)
     emit displayMaxValueChanged();
 }
 
-int TemperatureGauge::value() const
+double TemperatureGauge::value() const
 {
     Q_D(const TemperatureGauge);
     return d->value;
 }
 
-void TemperatureGauge::setValue(int value)
+void TemperatureGauge::setValue(double value)
 {
     Q_D(TemperatureGauge);
-    if (d->value == value) {
+    if (qFuzzyCompare(d->value, value)) {
         return;
     }
     d->value = value;
@@ -119,7 +119,7 @@ double TemperatureGauge::displayMaxValue() const
     return convertToDisplay(d->maxValue);
 }
 
-double TemperatureGauge::convertToDisplay(int v) const
+double TemperatureGauge::convertToDisplay(double v) const
 {
     Q_D(const TemperatureGauge);
     if (d->displayUnit == TemperatureGauge::Celsius) {

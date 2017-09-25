@@ -12,7 +12,7 @@ public:
     TemperatureGaugePrivate();
 
     TemperatureGauge::Unit displayUnit;
-    int value;
+    double value;
     int minValue;
     int maxValue;
 };

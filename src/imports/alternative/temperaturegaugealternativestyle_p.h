@@ -4,8 +4,6 @@
 #include <QtCore/qobject.h>
 #include <QtGui/qcolor.h>
 
-QT_BEGIN_NAMESPACE
-
 class TemperatureGaugeAlternativeStyle : public QObject
 {
     Q_OBJECT
@@ -28,7 +26,5 @@ public:
     QColor negativeColorEnd() const;
     QColor tickColor() const;
 };
-
-QT_END_NAMESPACE
 
 #endif // TEMPERATUREGAUGEALTERNATIVESTYLE_P_H

@@ -1,7 +1,5 @@
 #include "temperaturegaugealternativestyle_p.h"
 
-QT_BEGIN_NAMESPACE
-
 TemperatureGaugeAlternativeStyle::TemperatureGaugeAlternativeStyle(QObject *parent) :
     QObject(parent)
 {
@@ -41,5 +39,3 @@ QColor TemperatureGaugeAlternativeStyle::tickColor() const
 {
     return QColor::fromRgb(0x262424);
 }
-
-QT_END_NAMESPACE

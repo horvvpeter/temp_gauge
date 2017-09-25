@@ -3,8 +3,6 @@
 
 #include <QtQuickTemplates2/private/qquickcontrol_p.h>
 
-QT_BEGIN_NAMESPACE
-
 class TemperatureGaugePrivate;
 class Q_QUICKTEMPLATES2_PRIVATE_EXPORT TemperatureGauge : public QQuickControl
 {
@@ -64,8 +62,6 @@ private:
     Q_DISABLE_COPY(TemperatureGauge)
     Q_DECLARE_PRIVATE(TemperatureGauge)
 };
-
-QT_END_NAMESPACE
 
 QML_DECLARE_TYPE(TemperatureGauge)
 

@@ -1,8 +1,6 @@
 #include "temperaturegaugealternativeplugin.h"
 #include "temperaturegaugealternativestyle_p.h"
 
-QT_BEGIN_NAMESPACE
-
 static QObject *styleSingleton(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine);
@@ -32,5 +30,3 @@ QString TemperatureGaugeAlternativePlugin::name() const
 {
     return QStringLiteral("temperaturegaugealternativestyle");
 }
-
-QT_END_NAMESPACE

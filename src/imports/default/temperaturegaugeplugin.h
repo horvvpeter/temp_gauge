@@ -4,8 +4,6 @@
 #include <QtQuickControls2/private/qquickstyleplugin_p.h>
 #include <QQmlEngine>
 
-QT_BEGIN_NAMESPACE
-
 class TemperatureGaugePlugin: public QQuickStylePlugin
 {
     Q_OBJECT

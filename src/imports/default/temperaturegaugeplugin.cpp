@@ -5,8 +5,6 @@
 #include <QtQuickControls2/private/qquickstyle_p.h>
 #include "temperaturegaugedefaultstyle_p.h"
 
-QT_BEGIN_NAMESPACE
-
 static QObject *styleSingleton(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine);
@@ -46,5 +44,3 @@ QString TemperatureGaugePlugin::name() const
 {
     return QStringLiteral("temperaturegaugedefaultstyle");
 }
-
-QT_END_NAMESPACE

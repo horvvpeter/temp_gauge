@@ -1,8 +1,6 @@
 #include "temperaturegauge_p.h"
 #include "temperaturegauge_p_p.h"
 
-QT_BEGIN_NAMESPACE
-
 namespace
 {
     const double CelsiusToKelvin = 274.15;
@@ -128,5 +126,3 @@ double TemperatureGauge::convertToDisplay(double v) const
         return v + CelsiusToKelvin;
     }
 }
-
-QT_END_NAMESPACE

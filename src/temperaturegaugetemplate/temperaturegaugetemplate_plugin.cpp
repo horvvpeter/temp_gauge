@@ -3,7 +3,7 @@
 
 #include <qqml.h>
 
-void TemperaturegaugetemplatePlugin::registerTypes(const char *uri)
+void TemperatureGaugeTemplatePlugin::registerTypes(const char *uri)
 {
     // @uri TemperatureGauge
     qmlRegisterType<TemperatureGauge>(uri, 1, 0, "TemperatureGauge");

@@ -1,0 +1,3 @@
+module TemperatureGauge
+plugin temperaturegaugeplugin
+depends TemperatureGauge.Template 1.0

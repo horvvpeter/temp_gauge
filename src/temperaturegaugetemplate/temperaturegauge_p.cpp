@@ -2,6 +2,7 @@
 #include "temperaturegauge_p_p.h"
 
 TemperatureGaugePrivate::TemperatureGaugePrivate()
+    : value(0)
 {
 
 }

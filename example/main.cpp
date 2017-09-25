@@ -3,7 +3,6 @@
 #include <QQuickStyle>
 #include <QSettings>
 #include <QQmlContext>
-#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -12,10 +11,10 @@ int main(int argc, char *argv[])
 
     QSettings settings;
     QQuickStyle::setStyle(settings.value("style", QQuickStyle::name()).toString());
-    qDebug() << "Saved style is" << QQuickStyle::name();
+    QStringList tempGaugeStyles = { QStringLiteral("Default"), QStringLiteral("Alternative") };
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("availableStyles", QQuickStyle::availableStyles());
+    engine.rootContext()->setContextProperty("availableStyles", tempGaugeStyles);
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;

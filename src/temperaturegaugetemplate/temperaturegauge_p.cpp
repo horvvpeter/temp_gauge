@@ -2,8 +2,7 @@
 #include "temperaturegauge_p_p.h"
 
 TemperatureGaugePrivate::TemperatureGaugePrivate()
-    : inputUnit(TemperatureGauge::Celsius),
-      displayUnit(TemperatureGauge::Celsius),
+    : displayUnit(TemperatureGauge::Celsius),
       value(0)
 {
 
@@ -21,22 +20,6 @@ TemperatureGauge::~TemperatureGauge()
 TemperatureGauge::TemperatureGauge(TemperatureGaugePrivate &dd, QQuickItem *parent)
     : QQuickControl(dd, parent)
 {
-}
-
-TemperatureGauge::Unit TemperatureGauge::inputUnit() const
-{
-    Q_D(const TemperatureGauge);
-    return d->inputUnit;
-}
-
-void TemperatureGauge::setInputUnit(TemperatureGauge::Unit unitType)
-{
-    Q_D(TemperatureGauge);
-    if (d->inputUnit == unitType) {
-        return;
-    }
-    d->inputUnit = unitType;
-    emit inputUnitChanged();
 }
 
 TemperatureGauge::Unit TemperatureGauge::displayUnit() const

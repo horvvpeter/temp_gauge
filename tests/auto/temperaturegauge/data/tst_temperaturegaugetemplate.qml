@@ -31,21 +31,6 @@ TestCase {
         compare(valueChangedSpy.count, 1);
     }
 
-    function test_inputUnit() {
-        var control = tempGauge.createObject(testCase);
-        verify(control);
-        compare(control.inputUnit, T.TemperatureGauge.Celsius);
-
-        var inputUnitChangedSpy = signalSpy.createObject(control, {target: control, signalName: "inputUnitChanged"});
-        verify(inputUnitChangedSpy.valid);
-        control.inputUnit = T.TemperatureGauge.Kelvin;
-        compare(control.inputUnit, T.TemperatureGauge.Kelvin);
-        compare(inputUnitChangedSpy.count, 1);
-
-        control.inputUnit = T.TemperatureGauge.Kelvin;
-        compare(inputUnitChangedSpy.count, 1);
-    }
-
     function test_displayUnit() {
         var control = tempGauge.createObject(testCase);
         verify(control);

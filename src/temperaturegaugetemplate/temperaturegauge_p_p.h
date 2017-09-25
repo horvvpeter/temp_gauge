@@ -11,7 +11,6 @@ class Q_QUICKTEMPLATES2_PRIVATE_EXPORT TemperatureGaugePrivate : public QQuickCo
 public:
     TemperatureGaugePrivate();
 
-    TemperatureGauge::Unit inputUnit;
     TemperatureGauge::Unit displayUnit;
     int value;
 };

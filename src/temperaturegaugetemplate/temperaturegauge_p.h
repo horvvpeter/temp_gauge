@@ -10,7 +10,6 @@ class Q_QUICKTEMPLATES2_PRIVATE_EXPORT TemperatureGauge : public QQuickControl
 {
     Q_OBJECT
 
-    Q_PROPERTY(Unit inputUnit READ inputUnit WRITE setInputUnit NOTIFY inputUnitChanged)
     Q_PROPERTY(Unit displayUnit READ displayUnit WRITE setDisplayUnit NOTIFY displayUnitChanged)
     Q_PROPERTY(int value READ value WRITE setValue NOTIFY valueChanged)
 
@@ -24,9 +23,6 @@ public:
     };
     Q_ENUM(Unit)
 
-    Unit inputUnit() const;
-    void setInputUnit(Unit unitType);
-
     Unit displayUnit() const;
     void setDisplayUnit(Unit unitType);
 
@@ -36,7 +32,6 @@ public:
 public Q_SLOTS:
 
 Q_SIGNALS:
-    void inputUnitChanged();
     void displayUnitChanged();
     void valueChanged();
 

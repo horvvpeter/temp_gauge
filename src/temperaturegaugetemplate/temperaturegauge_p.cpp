@@ -76,7 +76,7 @@ int TemperatureGauge::minValue() const
 void TemperatureGauge::setMinValue(int minValue)
 {
     Q_D(TemperatureGauge);
-    if (d->minValue == minValue) {
+    if (d->minValue == minValue || d->maxValue <= minValue) {
         return;
     }
     d->minValue = minValue;
@@ -93,7 +93,7 @@ int TemperatureGauge::maxValue() const
 void TemperatureGauge::setMaxValue(int maxValue)
 {
     Q_D(TemperatureGauge);
-    if (d->maxValue == maxValue) {
+    if (d->maxValue == maxValue || d->minValue >= maxValue) {
         return;
     }
     d->maxValue = maxValue;

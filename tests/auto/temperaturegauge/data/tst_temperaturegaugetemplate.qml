@@ -76,6 +76,10 @@ TestCase {
         // test no change
         control.minValue = -20;
         control.maxValue = 20;
+        control.minValue = 40;
+        control.maxValue = -30;
+        compare(control.minValue, -20);
+        compare(control.maxValue, 20);
         compare(minValueChangedSpy.count, 1);
         compare(maxValueChangedSpy.count, 1);
     }

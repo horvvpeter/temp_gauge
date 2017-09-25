@@ -1,4 +1,8 @@
 #include "temperaturegaugeplugin.h"
+#include <QtCore/private/qfileselector_p.h>
+#include <QtQuickControls2/private/qquickstyleselector_p.h>
+#include <QtQuickControls2/qquickstyle.h>
+#include <QtQuickControls2/private/qquickstyle_p.h>
 #include "temperaturegaugedefaultstyle_p.h"
 
 QT_BEGIN_NAMESPACE
@@ -17,8 +21,17 @@ TemperatureGaugePlugin::TemperatureGaugePlugin(QObject *parent)
 
 void TemperatureGaugePlugin::registerTypes(const char *uri)
 {
+    QQuickStylePrivate::init(typeUrl());
+    const QString style = QQuickStyle::name();
+    if (!style.isEmpty()) {
+        QFileSelectorPrivate::addStatics(QStringList() << style.toLower());
+    }
+
+    QQuickStyleSelector selector;
+    selector.setBaseUrl(typeUrl());
+
     qmlRegisterModule(uri, 1, 0);
-    qmlRegisterType(typeUrl(QStringLiteral("TemperatureGauge.qml")), uri, 1, 0, "TemperatureGauge");
+    qmlRegisterType(selector.select(QStringLiteral("TemperatureGauge.qml")), uri, 1, 0, "TemperatureGauge");
 }
 
 void TemperatureGaugePlugin::initializeEngine(QQmlEngine *engine, const char *uri)

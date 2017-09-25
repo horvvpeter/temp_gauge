@@ -13,6 +13,8 @@ public:
 
     TemperatureGauge::Unit displayUnit;
     int value;
+    int minValue;
+    int maxValue;
 };
 
 QT_END_NAMESPACE

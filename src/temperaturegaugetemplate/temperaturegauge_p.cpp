@@ -1,9 +1,18 @@
 #include "temperaturegauge_p.h"
 #include "temperaturegauge_p_p.h"
 
+QT_BEGIN_NAMESPACE
+
+namespace
+{
+    const double CelsiusToKelvin = 274.15;
+}
+
 TemperatureGaugePrivate::TemperatureGaugePrivate()
     : displayUnit(TemperatureGauge::Celsius),
-      value(0)
+      value(0),
+      minValue(-50),
+      maxValue(50)
 {
 
 }
@@ -36,6 +45,9 @@ void TemperatureGauge::setDisplayUnit(TemperatureGauge::Unit unitType)
     }
     d->displayUnit = unitType;
     emit displayUnitChanged();
+    emit displayValueChanged();
+    emit displayMinValueChanged();
+    emit displayMaxValueChanged();
 }
 
 int TemperatureGauge::value() const
@@ -52,4 +64,69 @@ void TemperatureGauge::setValue(int value)
     }
     d->value = value;
     emit valueChanged();
+    emit displayValueChanged();
 }
+
+int TemperatureGauge::minValue() const
+{
+    Q_D(const TemperatureGauge);
+    return d->minValue;
+}
+
+void TemperatureGauge::setMinValue(int minValue)
+{
+    Q_D(TemperatureGauge);
+    if (d->minValue == minValue) {
+        return;
+    }
+    d->minValue = minValue;
+    emit minValueChanged();
+    emit displayMinValueChanged();
+}
+
+int TemperatureGauge::maxValue() const
+{
+    Q_D(const TemperatureGauge);
+    return d->maxValue;
+}
+
+void TemperatureGauge::setMaxValue(int maxValue)
+{
+    Q_D(TemperatureGauge);
+    if (d->maxValue == maxValue) {
+        return;
+    }
+    d->maxValue = maxValue;
+    emit maxValueChanged();
+    emit displayMaxValueChanged();
+}
+
+double TemperatureGauge::displayValue() const
+{
+    Q_D(const TemperatureGauge);
+    return convertToDisplay(d->value);
+}
+
+double TemperatureGauge::displayMinValue() const
+{
+    Q_D(const TemperatureGauge);
+    return convertToDisplay(d->minValue);
+}
+
+double TemperatureGauge::displayMaxValue() const
+{
+    Q_D(const TemperatureGauge);
+    return convertToDisplay(d->maxValue);
+}
+
+double TemperatureGauge::convertToDisplay(int v) const
+{
+    Q_D(const TemperatureGauge);
+    if (d->displayUnit == TemperatureGauge::Celsius) {
+        return v;
+    } else {
+        return v + CelsiusToKelvin;
+    }
+}
+
+QT_END_NAMESPACE

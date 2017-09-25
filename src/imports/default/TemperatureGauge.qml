@@ -65,7 +65,7 @@ T.TemperatureGauge {
                         if (index !== tickRepeater.count - 1) {
                             return (index * tickRepeater.majorTickStep) * thermo.mercuryHeightScale
                         } else {
-                            return (index * tickRepeater.majorTickStep) * thermo.mercuryHeightScale - majorTick.height
+                            return (backgroundRect.y + backgroundRect.height) - majorTick.height
                         }
                     }
 

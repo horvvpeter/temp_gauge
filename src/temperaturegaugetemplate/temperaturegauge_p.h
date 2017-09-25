@@ -11,7 +11,7 @@ class Q_QUICKTEMPLATES2_PRIVATE_EXPORT TemperatureGauge : public QQuickControl
     Q_OBJECT
 
     Q_PROPERTY(Unit displayUnit READ displayUnit WRITE setDisplayUnit NOTIFY displayUnitChanged)
-    Q_PROPERTY(int value READ value WRITE setValue NOTIFY valueChanged)
+    Q_PROPERTY(double value READ value WRITE setValue NOTIFY valueChanged)
     Q_PROPERTY(int minValue READ minValue WRITE setMinValue NOTIFY minValueChanged)
     Q_PROPERTY(int maxValue READ maxValue WRITE setMaxValue NOTIFY maxValueChanged)
     Q_PROPERTY(double displayValue READ displayValue NOTIFY displayValueChanged)
@@ -31,8 +31,8 @@ public:
     Unit displayUnit() const;
     void setDisplayUnit(Unit unitType);
 
-    int value() const;
-    void setValue(int);
+    double value() const;
+    void setValue(double);
 
     int minValue() const;
     void setMinValue(int);
@@ -44,7 +44,7 @@ public:
     double displayMinValue() const;
     double displayMaxValue() const;
 
-    double convertToDisplay(int v) const;
+    double convertToDisplay(double v) const;
 
 public Q_SLOTS:
 

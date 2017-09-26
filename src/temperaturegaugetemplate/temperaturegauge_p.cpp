@@ -2,8 +2,15 @@
 #include "temperaturegauge_p_p.h"
 
 /*!
+  \qmlmodule TemperatureGauge 1.0
+
+  This is a module for TemperateGauge.
+*/
+
+/*!
     \qmltype TemperatureGauge
     \inherits Control
+    \inqmlmodule TemperatureGauge
     \brief A simple gauge for showing temperature.
 
     TemperatureGauge is a simple thermometer like gauge which displays temperature.

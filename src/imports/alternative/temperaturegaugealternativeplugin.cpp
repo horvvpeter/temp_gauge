@@ -20,6 +20,7 @@ void TemperatureGaugeAlternativePlugin::registerTypes(const char *uri)
 
 void TemperatureGaugeAlternativePlugin::initializeEngine(QQmlEngine *engine, const char *uri)
 {
+    // Registering TemperatureGaugeAlternativeStyle into TemperatureGauge.Alternative.impl module
     QQuickStylePlugin::initializeEngine(engine, uri);
     const QByteArray import = QByteArray(uri) + ".impl";
     qmlRegisterModule(import, 1, 0);

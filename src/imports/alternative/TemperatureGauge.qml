@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
-import TemperatureGauge.Alternative 1.0
+import TemperatureGauge.Alternative 1.0 // Without this import TemperatureGauge.Alternative.impl is not found as installed
 import TemperatureGauge.Alternative.impl 1.0
 import TemperatureGauge.Template 1.0 as T
 

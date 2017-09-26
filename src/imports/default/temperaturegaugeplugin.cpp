@@ -19,6 +19,7 @@ TemperatureGaugePlugin::TemperatureGaugePlugin(QObject *parent)
 
 void TemperatureGaugePlugin::registerTypes(const char *uri)
 {
+    // Using selector for TemperatureGauage.qml for styling support
     QQuickStylePrivate::init(typeUrl());
     const QString style = QQuickStyle::name();
     if (!style.isEmpty()) {
@@ -34,6 +35,7 @@ void TemperatureGaugePlugin::registerTypes(const char *uri)
 
 void TemperatureGaugePlugin::initializeEngine(QQmlEngine *engine, const char *uri)
 {
+    // Registering TemperatureGaugeDefaultStyle into TemperatureGauge.Alternative.impl module
     QQuickStylePlugin::initializeEngine(engine, uri);
     const QByteArray import = QByteArray(uri) + ".impl";
     qmlRegisterModule(import, 1, 0);

@@ -1,3 +1,4 @@
+#include($QT_INSTALL_DOCS/global/qt-module-defaults.qdocconf)
 project                 = TemperatureGauge
 description             = TemperatureGauge Reference Documentation
 version                 = 1.0

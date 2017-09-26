@@ -1,0 +1,11 @@
+/*!
+    \title TemperatureGauge Example
+    \example example
+
+    This example shows how to create a TemperatureGauge and set it's \l{TemperatureGauge::value},
+    \l{TemperatureGauge::minValue}, \l{TemperatureGauge::maxValue}.
+    It also demonstrates how to use it's alternative style.
+    
+    \image tempgauge_example.png "TemperatureGauge example"
+    \caption TemperatureGauge example
+*/

@@ -1,6 +1,73 @@
 #include "temperaturegauge_p.h"
 #include "temperaturegauge_p_p.h"
 
+/*!
+  \qmlmodule TemperatureGauge 1.0
+
+  This is a module for TemperateGauge.
+*/
+
+/*!
+    \qmltype TemperatureGauge
+    \inherits Control
+    \inqmlmodule TemperatureGauge
+    \brief A simple gauge for showing temperature.
+
+    TemperatureGauge is a simple thermometer like gauge which displays temperature.
+    The input temperature is in the units of Celsius, however there is a possibility to display
+    the temperature using units of Kelvin.
+
+    It comes with two styles: default and alternative.
+    \image tempgauge_default.png "Default style"
+    \caption Default style
+    \image tempgauge_alternative.png "Alternative style"
+    \caption Alternative style
+
+    \l {example} {See an example of how to use TemperatureGauge}
+*/
+
+/*!
+    \qmlsignal TemperatureGauge::displayUnitChanged()
+
+    This signal is emitted when displayUnit was changed.
+*/
+
+/*!
+    \qmlsignal TemperatureGauge::valueChanged()
+
+    This signal is emitted when \l{value} was changed.
+*/
+
+/*!
+    \qmlsignal TemperatureGauge::minValueChanged()
+
+    This signal is emitted when minValue was changed.
+*/
+
+/*!
+    \qmlsignal TemperatureGauge::maxValueChanged()
+
+    This signal is emitted when maxValue was changed.
+*/
+
+/*!
+    \qmlsignal TemperatureGauge::displayValueChanged()
+
+    This signal is emitted when the value or displayUnit was changed.
+*/
+
+/*!
+    \qmlsignal TemperatureGauge::displayMinValueChanged()
+
+    This signal is emitted when minValue or displayUnit was changed.
+*/
+
+/*!
+    \qmlsignal TemperatureGauge::displayMaxValueChanged()
+
+    This signal is emitted when maxValue or displayUnit was changed.
+*/
+
 namespace
 {
     const double CelsiusToKelvin = 274.15;
@@ -29,6 +96,14 @@ TemperatureGauge::TemperatureGauge(TemperatureGaugePrivate &dd, QQuickItem *pare
 {
 }
 
+/*!
+    \qmlproperty enumeration TemperatureGauge::displayUnit
+
+    This property holds the temperature unit to display.
+
+    \value TemperatureGauge.Celsius Display temperature in the units of Celsius.
+    \value TemperatureGauge.Kelvin  Display temperature in the units of Kelvin.
+*/
 TemperatureGauge::Unit TemperatureGauge::displayUnit() const
 {
     Q_D(const TemperatureGauge);
@@ -48,6 +123,12 @@ void TemperatureGauge::setDisplayUnit(TemperatureGauge::Unit unitType)
     emit displayMaxValueChanged();
 }
 
+/*!
+    \qmlproperty double TemperatureGauge::value
+
+    This property holds the temperature value in the units of Celsius.
+    \sa displayValue
+*/
 double TemperatureGauge::value() const
 {
     Q_D(const TemperatureGauge);
@@ -65,6 +146,12 @@ void TemperatureGauge::setValue(double value)
     emit displayValueChanged();
 }
 
+/*!
+    \qmlproperty int TemperatureGauge::minValue
+
+    This property holds the minimum temperature which should be displayed in the units of Celsius.
+    \sa displayMinValue
+*/
 int TemperatureGauge::minValue() const
 {
     Q_D(const TemperatureGauge);
@@ -82,6 +169,12 @@ void TemperatureGauge::setMinValue(int minValue)
     emit displayMinValueChanged();
 }
 
+/*!
+    \qmlproperty int TemperatureGauge::maxValue
+
+    This property holds the maximum temperature which should be displayed in the units of Celsius.
+    \sa displayMaxValue
+*/
 int TemperatureGauge::maxValue() const
 {
     Q_D(const TemperatureGauge);
@@ -99,18 +192,39 @@ void TemperatureGauge::setMaxValue(int maxValue)
     emit displayMaxValueChanged();
 }
 
+/*!
+    \qmlproperty double TemperatureGauge::displayValue
+    \readonly
+
+    This property holds the temperature value in the selected display unit.
+    \sa value, displayUnit
+*/
 double TemperatureGauge::displayValue() const
 {
     Q_D(const TemperatureGauge);
     return convertToDisplay(d->value);
 }
 
+/*!
+    \qmlproperty double TemperatureGauge::displayMinValue
+    \readonly
+
+    This property holds the minimum temperature which should be displayed in the selected display unit
+    \sa minValue, displayUnit
+*/
 double TemperatureGauge::displayMinValue() const
 {
     Q_D(const TemperatureGauge);
     return convertToDisplay(d->minValue);
 }
 
+/*!
+    \qmlproperty double TemperatureGauge::displayMaxValue
+    \readonly
+
+    This property holds the maximum temperature which should be displayed in the selected display unit
+    \sa maxValue, displayUnit
+*/
 double TemperatureGauge::displayMaxValue() const
 {
     Q_D(const TemperatureGauge);

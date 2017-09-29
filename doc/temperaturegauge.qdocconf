@@ -1,0 +1,18 @@
+include($QT_INSTALL_DOCS/global/qt-html-templates-offline.qdocconf)
+project                 = TemperatureGauge
+description             = TemperatureGauge Reference Documentation
+version                 = 1.0
+
+exampledirs += ../
+examples.fileextensions += "*.qml *.cpp"
+
+headerdirs += ../src/temperaturegaugetemplate
+headers.fileextensions = "*.h"
+
+sourcedirs += ../src/temperaturegaugetemplate \
+              src
+sources.fileextensions = "*.cpp *.qdoc *.qml"
+
+imagedirs += images
+
+outputdir = $PWD/html
